@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Free Responsive Html5 Templates">
+    <meta name="author" content="">
+	
+    <title>PhotoGrap | Free Bootstrap Themes</title>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Custom CSS -->
+    <link href="/static/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="/static/fonts/stylesheet.css">
+
+	<!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- jQuery and Modernizr-->
+	<script src="/static/js/jquery-2.1.1.js"></script>
+
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="sub-page">
+
+	<header class="sub-header">
+
+		<!-- /////////////////////////////////////////Navigation -->
+		<nav id="menu" class="navbar container">
+				<div class="">
+					<div class="navbar-header">
+						<button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+						<a href="index.html" class="navbar-brand visible-xs">PhotoGrap</a>
+					</div>
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="{% url 'index' %}">主页</a></li>
+							<li><a href="{% url 'provincesList' %}">省份</a></li>
+                            <li><a href="{% url 'sceneryList' 0 %}">景区</a></li>
+							<li><a href="https://map.baidu.com/@12260314.144401727,3937984.724654775,5.22z"  target = "_blank">地图</a></li>
+							<li><a href="{% url 'contact' %}">留言</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		<!-- Navigation -->
+
+		<div class="crumbs">
+			<div class="container">
+			<h2><a href="{% url 'provincesList' %}">省份</a></h2>
+			<ul>
+				<li><a href="{% url 'index' %}">主页</a></li>
+				<li><a href="{% url 'provincesList' %}">省份</a></li>
+			</ul>
+			</div>
+		</div>
+	</header>
+	<!-- Header -->
+
+	<!-- /////////////////////////////////////////Content -->
+	<div id="page-content">
+		<div class="container">
+			<div class="row">
+				<div id="main-content">
+					<div class="row">
+						<div class="heading">
+							<hr class="line">
+							<h3 class="sub">All Of</h3>
+							<h1 class="title">PROVINCE</h1>
+						</div>
+					</div>
+					<div class="row text-center">
+						<div id="filters" class="filter-container">
+							<ul class="list-inline">
+								<li class="active"><a href="#" data-filter="*">全部 </a></li>
+                                <li><a href="#" data-filter=".hb">华北</a></li>
+                                <li><a href="#" data-filter=".hz">华中</a></li>
+                                <li><a href="#" data-filter=".hd">华东</a></li>
+                                <li><a href="#" data-filter=".hn">华南</a></li>
+                                <li><a href="#" data-filter=".db">华北</a></li>
+                                <li><a href="#" data-filter=".xb">西北</a></li>
+                                <li><a href="#" data-filter=".xn">西南</a></li>
+                                <li><a href="#" data-filter=".db">东北</a></li>
+
+							</ul>
+						</div>
+
+						<div class="isotopeContainer">
+                            {% for provinces in provinces_list %}
+							<div class="col-lg-3 col-sm-4 col-md-6 isotopeSelector {{ provinces.category }}">
+                                <a href="{% url 'sceneryList' provinces.id %}">
+								<div class="portfolio-box zoom-effect">
+                                    <a href="{% url 'sceneryList' provinces.id %}"><img src="/media/{{ provinces.image }}" class="img-responsive" alt=""></a>
+									<div class="portfolio-box-caption">
+										<div class="portfolio-box-caption-content">
+											<div class="project-name">
+                                                {{ provinces.name }}
+											</div>
+											<div class="project-category">
+												{{ provinces.eng_name }}
+											</div>
+											<div class="project-social">
+												<ul class="list-inline">
+													<li><a href="{% url 'sceneryList' provinces.id %}"><i class="fa fa-link"></i></a></li>
+													<li><a href="/media/{{ provinces.image }}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><i class="fa fa-search"></i></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+                                </a>
+							</div>
+                            {% endfor %}
+
+
+
+						</div>
+						<a id="load-more" class="btn btn-skin"> Load More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="wrap-footer">
+			<div class="container">
+				<div class="row">
+					<ul class="list-inline social-buttons">
+                        <li><a href="#"><i><img src="/static/images/tubiao/wechat.png" alt="" class="tubiao"></i></a></li>
+                        <li><a href="#"><i><img src="/static/images/tubiao/zhihu.png" alt="" class="tubiao"></i></a></li>
+                        <li><a href="#"><i><img src="/static/images/tubiao/QQ.png" alt="" class="tubiao"></i></a></li>
+                        <li><a href="#"><i><img src="/static/images/tubiao/weibo.png" alt="" class="tubiao"></i></a></li>
+                        <li><a href="#"><i><img src="/static/images/tubiao/tieba.png" alt="" class="tubiao"></i></a></li>
+					</ul>
+					<div class="copyright">
+						<p>Copyright 2019 - Powder by Django</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+ <!-- Core JavaScript Files -->
+
+    <script src="/static/js/bootstrap.min.js"></script>
+
+	<!-- Isotope Porfolio -->
+	<script src="/static/js/isotope.min.js"></script>
+	<script>
+	// external js: isotope.pkgd.js
+
+	$(document).ready(function() {
+
+	  // init Isotope
+	  var $container = $('.isotopeContainer').isotope({
+		itemSelector: '.isotopeSelector'
+	  });
+
+
+	  // bind filter button click
+	  $('#filters').on('click', 'a', function() {
+		var filterValue = $(this).attr('data-filter');
+		// use filterFn if matches value
+		filterValue = filterValue;
+		$container.isotope({
+		  filter: filterValue
+		});
+	  });
+
+	  // change is-checked class on buttons
+	  $('.filter-container').each(function(i, buttonGroup) {
+		var $buttonGroup = $(buttonGroup);
+		$buttonGroup.on('click', 'a', function() {
+		  $buttonGroup.find('.active').removeClass('active');
+		  $(this).addClass('active');
+		});
+	  });
+
+	  //****************************
+	  // Isotope Load more button
+	  //****************************
+	  var initShow = 8; //number of items loaded on init & onclick load more button
+	  var counter = 3; //counter for load more button
+	  var iso = $container.data('isotope'); // get Isotope instance
+
+	  loadMore(initShow); //execute function onload
+
+	  function loadMore(toShow) {
+		$container.find(".hidden").removeClass("hidden");
+
+		var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
+		  return item.element;
+		});
+		$(hiddenElems).addClass('hidden');
+		$container.isotope('layout');
+
+		//when no more to load, hide show more button
+		if (hiddenElems.length == 0) {
+		  jQuery("#load-more").hide();
+		} else {
+		  jQuery("#load-more").show();
+		};
+
+	  }
+
+	  //when load more button clicked
+	  $("#load-more").click(function() {
+		if ($('#filters').data('clicked')) {
+		  //when filter button clicked, set initial value for counter
+		  counter = initShow;
+		  $('#filters').data('clicked', false);
+		} else {
+		  counter = counter;
+		};
+
+		counter = counter + initShow;
+
+		loadMore(counter);
+	  });
+
+	  //when filter button clicked
+	  $("#filters").click(function() {
+		$(this).data('clicked', true);
+
+		loadMore(initShow);
+	  });
+
+
+
+	});</script>
+
+
+
+</body>
+
+</html>

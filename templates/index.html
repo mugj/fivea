@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Free Responsive Html5 Templates">
+    <meta name="author" content="">
+	
+    <title>PhotoGrap | Free Bootstrap Themes</title>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	
+	<!-- Custom CSS -->
+    <link href="/static/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="/static/css/lightbox.css">
+	<link rel="stylesheet" href="/static/fonts/stylesheet.css">
+	
+	<!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<!-- Owl Carousel Assets -->
+    <link href="/static/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="/static/owl-carousel/owl.theme.css" rel="stylesheet">
+	
+	<!-- jQuery and Modernizr-->
+	<script src="/static/js/jquery-2.1.1.js"></script>
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="index-page">
+	<div class="custom-banner">
+		<header class="main-header">
+			<!-- /////////////////////////////////////////Navigation -->
+			<nav id="menu" class="navbar container">
+				<div class="">
+					<div class="navbar-header">
+						<button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+						<a href="index.html" class="navbar-brand visible-xs">PhotoGrap</a>
+					</div>
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="{% url 'index' %}">主页</a></li>
+							<li><a href="{% url 'provincesList' %}">省份</a></li>
+                            <li><a href="{% url 'sceneryList' 0 %}">景区</a></li>
+							<li><a href="https://map.baidu.com/@12260314.144401727,3937984.724654775,5.22z"  target = "_blank">地图</a></li>
+							<li><a href="{% url 'contact' %}">留言</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- Navigation -->
+			
+			<!-- Carousel -->
+			<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel" data-interval="10000" >
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<!-- Static Header -->
+						<div class="header-text ">
+							<div class="col-md-12">
+								<h1><br>
+									<span>西湖</span><br>
+									West Lake
+								</h1>
+								<hr class="line">
+								<p>“欲把西湖比西子，浓妆淡抹总相宜” <br/></p>
+								<a href="{% url 'sceneryList' 0 %}" class="btn btn-primary btn-header">发现更多</a>
+							</div>
+						</div><!-- /header-text -->
+					</div>
+					<div class="item">
+						<!-- Static Header -->
+						<div class="header-text">
+
+							<div class="col-md-12">
+								<h1>
+                                    <br>
+									<span>喀纳斯湖</span><br>
+									Kanas Lake
+								</h1>
+								<hr class="line">
+								<p>“喀纳斯”是蒙古语，意为“美丽而神秘的湖”。</p>
+								<a href="{% url 'sceneryList' 0 %}" class="btn btn-primary btn-header">发现更多</a>
+							</div>
+						</div><!-- /header-text -->
+					</div>
+                    <div class="item">
+						<!-- Static Header -->
+						<div class="header-text">
+
+							<div class="col-md-12">
+								<h1>
+                                    <br>
+									<span>漓江</span><br>
+									Lijiang River
+
+								</h1>
+								<hr class="line">
+								<p>"桂林山水甲天下"</p>
+								<a href="{% url 'sceneryList' 0 %}" class="btn btn-primary btn-header">发现更多</a>
+							</div>
+						</div><!-- /header-text -->
+					</div>
+                    <div class="item">
+						<!-- Static Header -->
+						<div class="header-text">
+
+							<div class="col-md-12">
+								<h1>
+                                    <br>
+									<span>九寨沟</span><br>
+									Jiuzhaigou National Park
+								</h1>
+								<hr class="line">
+								<p>"九寨归来不看水"</p>
+								<a href="{% url 'sceneryList' 0 %}" class="btn btn-primary btn-header">发现更多</a>
+							</div>
+						</div><!-- /header-text -->
+					</div>
+				</div>
+
+			</div><!-- /carousel -->
+			
+		</header>
+	</div>
+	<!-- /Section: intro -->
+	
+	<!-- /////////////////////////////////////////Content -->
+	<div id="page-content">
+
+		<!-- ////////////Content Box 01 -->
+		<section class="box-content box-1" id="service">
+			<div class="container">
+				<div class="row">
+                    {% for guide in guide_list %}
+                    <div class="col-md-6">
+						<div class="box-item">
+							<img src="/media/{{ guide.image }}" />
+							<div class="item-caption">
+								<div class="item-caption-inner">
+									<p class="item-caption-title"><a href="#" style="font-size: 20px; color: black">{{ guide.title }}</a></p>
+									<p class="item-caption-category">
+                                        分类：
+										<a href="#" rel="category tag">攻略</a>,
+										<a href="#" rel="category tag">5A</a> <a href="#" rel="category tag"></a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+                    {% endfor %}
+
+
+
+				</div>
+			</div>
+		</section>
+
+		<!-- ////////////Content Box 06 -->
+		<section class="box-content box-6">
+			<div class="container">
+				<div class="row">
+					<div class="heading">
+						<hr class="line">
+						<h5 class="title">地区-省份</h5>
+					</div>
+				</div>
+				<div class="filter-container isotopeFilters">
+					<ul class="list-inline filter">
+								<li class="active"><a href="#" data-filter="*">全部 </a></li>
+                                <li><a href="#" data-filter=".hb">华北</a></li>
+                                <li><a href="#" data-filter=".hz">华中</a></li>
+                                <li><a href="#" data-filter=".hd">华东</a></li>
+                                <li><a href="#" data-filter=".hn">华南</a></li>
+                                <li><a href="#" data-filter=".db">华北</a></li>
+                                <li><a href="#" data-filter=".xb">西北</a></li>
+                                <li><a href="#" data-filter=".xn">西南</a></li>
+                                <li><a href="#" data-filter=".db">东北</a></li>
+					</ul>
+				</div>
+				<div class="isotopeContainer">
+                    {% for provinces in provinces_list %}
+					<div class="col-lg-3 col-sm-4 col-md-6 isotopeSelector {{ provinces.category }}">
+
+						<div class="portfolio-box zoom-effect">
+							<img src="/media/{{ provinces.image }}" class="img-responsive" alt="">
+							<div class="portfolio-box-caption">
+								<div class="portfolio-box-caption-content">
+									<div class="project-name">
+										{{ provinces.name }}
+									</div>
+									<div class="project-category">
+										{{ provinces.eng_name }}
+									</div>
+									<div class="project-social">
+										<ul class="list-inline">
+											<li><a href="{% url 'sceneryList' provinces.id %}"><i class="fa fa-link"></i></a></li>
+											<li><a href="/media/{{ provinces.image }}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><i class="fa fa-search"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+                        </div>
+                    {% endfor %}
+
+
+
+
+				</div>
+			</div>
+		</section>
+
+		<!-- ////////////Content Box 03 -->
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="wrap-footer">
+			<div class="container">
+				<div class="row">
+					<ul class="list-inline social-buttons">
+                        <li><a href="#"><i><img src="/static/images/tubiao/wechat.png" alt="" class="tubiao"></i></a></li>
+                        <li><a href="#"><i><img src="/static/images/tubiao/zhihu.png" alt="" class="tubiao"></i></a></li>
+                        <li><a href="#"><i><img src="/static/images/tubiao/QQ.png" alt="" class="tubiao"></i></a></li>
+                        <li><a href="#"><i><img src="/static/images/tubiao/weibo.png" alt="" class="tubiao"></i></a></li>
+                        <li><a href="#"><i><img src="/static/images/tubiao/tieba.png" alt="" class="tubiao"></i></a></li>
+					</ul>
+					<div class="copyright">
+						<p>Copyright 2019 - Powder by Django</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+    <!-- Core JavaScript Files -->  	 
+    <script src="/static/js/bootstrap.min.js"></script>
+	
+	<!-- Light Box -->
+	<script src="/static/js/lightbox-plus-jquery.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="/static/js/isotope.min.js"></script>
+	<script>
+	jQuery(document).ready(function($) {
+		var myTheme = window.myTheme || {},
+		$win = $( window );
+		myTheme.Isotope = function () {
+			// 4 column layout
+			var isotopeContainer = $('.isotopeContainer');
+			if( !isotopeContainer.length || !jQuery().isotope ) return;
+			$win.load(function(){
+				isotopeContainer.isotope({
+					itemSelector: '.isotopeSelector'
+				});
+				$('.isotopeFilters').on( 'click', 'a', function(e) {
+					$('.isotopeFilters').find('.active').removeClass('active');
+					$(this).parent().addClass('active');
+					var filterValue = $(this).attr('data-filter');
+					isotopeContainer.isotope({ filter: filterValue });
+					e.preventDefault();
+				});
+
+			});
+		};
+		myTheme.Isotope();
+
+	});</script>
+	
+	<!-- carousel -->
+	<script src="/static/js/circletype.min.js"></script>
+	<script src="/static/js/plugins.js"></script>
+    <script>
+		$('#logo').circleType({fluid:true,radius: 360});
+	</script>
+
+				
+	</div>
+</body>
+
+</html>
